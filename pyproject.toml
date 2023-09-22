@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "drone-server"
+version = "0.1.0"
+description = ""
+authors = ["Timur Petrunkin <timur046@gmail.com>"]
+readme = "README.md"
+packages = [{include = "drone_server"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "^2.3.3"
+opencv-python = "^4.8.0.76"
+ultralytics = "^8.0.168"
+flask-cors = "^4.0.0"
+py-mon = "^1.1.1"
+flask-sock = "^0.6.0"
+gunicorn = "^21.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

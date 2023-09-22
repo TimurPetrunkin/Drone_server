@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Моя камера",
+        "link": "10.3.93.34:8554/profile0",
+        "login": "admin",
+        "password": "admin",
+        "auth": true
+    }
+]

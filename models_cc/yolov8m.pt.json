@@ -1,0 +1,562 @@
+[
+    {
+      "id": 1,
+      "name_eng":"person",
+      "name_rus":"человек",
+      "color_rgb":[191, 66, 245], 
+      "color_hex":"#bf42f5"  
+    },
+    {
+      "id": 2,
+      "name_end":"bicycle",
+      "name_rus":"велосипед",
+      "color_rgb":[130, 33, 73], 
+      "color_hex":"#822149"  
+    },
+    {
+      "id": 3,
+      "name_end":"car",
+      "name_rus":"машина",
+      "color_rgb":[130, 33, 73], 
+      "color_hex":"#822149"  
+    },
+    {
+      "id": 4,
+      "name_eng":"motorbike",
+      "name_rus":"мотоцикл",
+      "color_rgb":[130, 33, 73], 
+      "color_hex":"#822149"  
+    },
+    {
+      "id": 5,
+      "name_eng":"airplane",
+      "name_rus":"самолет",
+      "color_rgb":[42, 28, 199], 
+      "color_hex":"#2a1cc7"  
+    },
+    {
+      "id": 6,
+      "name_eng":"bus",
+      "name_rus":"автобус",
+      "color_rgb":[130, 33, 73], 
+      "color_hex":"#822149"  
+    },
+    {
+      "id": 7,
+      "name_eng":"train",
+      "name_rus":"поезд",
+      "color_rgb":[130, 33, 73], 
+      "color_hex":"#822149"  
+    },
+    {
+      "id": 8,
+      "name_end":"truck",
+      "name_rus":"грузовик",
+      "color_rgb":[130, 33, 73], 
+      "color_hex":"#822149"  
+    },
+    {
+      "id": 9,
+      "name_eng":"boat",
+      "name_rus":"лодка",
+      "color_rgb":[130, 33, 73], 
+      "color_hex":"#822149"  
+    },
+    {
+      "id": 10,
+      "name_eng":"traffic light",
+      "name_rus":"светофор",
+      "color_rgb":[28, 176, 199], 
+      "color_hex":"#1cb0c7"  
+    },
+    {
+      "id": 11,
+      "name_eng":"fire hydrant",
+      "name_rus":"пожарный гидрант",
+      "color_rgb":[28, 176, 199], 
+      "color_hex":"#1cb0c7"  
+    },
+    {
+      "id": 12,
+      "name_eng":"stop sign",
+      "name_rus":"сигнал стоп",
+      "color_rgb":[28, 176, 199], 
+      "color_hex":"#1cb0c7"  
+    },
+    {
+      "id": 13,
+      "name_eng":"parking meter",
+      "name_rus":"паркомат",
+      "color_rgb":[28, 176, 199], 
+      "color_hex":"#1cb0c7"  
+    },
+    {
+      "id": 14,
+      "name_eng":"bench",
+      "name_rus":"скамейка",
+      "color_rgb":[28, 176, 199], 
+      "color_hex":"#1cb0c7"  
+    },
+    {
+      "id": 15,
+      "name_eng":"bird",
+      "name_rus":"птица",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 16,
+      "name_eng":"cat",
+      "name_rus":"кошка",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 17,
+      "name_eng":"dog",
+      "name_rus":"собака",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 18,
+      "name_eng":"horse",
+      "name_rus":"лошадь",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 19,
+      "name_eng":"sheep",
+      "name_rus":"овца",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 20,
+      "name_eng":"cow",
+      "name_rus":"корова",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 21,
+      "name_eng":"elephant",
+      "name_rus":"слон",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 22,
+      "name_eng":"bear",
+      "name_rus":"медведь",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 23,
+      "name_eng":"zebra",
+      "name_rus":"зебра",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 24,
+      "name_eng":"giraffe",
+      "name_rus":"жираф",
+      "color_rgb":[199, 171, 28], 
+      "color_hex":"#c7ab1c"  
+    },
+    {
+      "id": 25,
+      "name_eng":"backpack",
+      "name_rus":"рюкзак",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 26,
+      "name_eng":"umbrella",
+      "name_rus":"зонт",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 27,
+      "name_eng":"handbag",
+      "name_rus":"сумка",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 28,
+      "name_eng":"tie",
+      "name_rus":"галстук",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 29,
+      "name_eng":"suitcase",
+      "name_rus":"чемодан",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 30,
+      "name_eng":"frisbee",
+      "name_rus":"фризби",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 31,
+      "name_eng":"skis",
+      "name_rus":"лыжи",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 32,
+      "name_eng":"snowboard",
+      "name_rus":"сноуборд",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 33,
+      "name_eng":"sports ball",
+      "name_rus":"спортивный мяч",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 34,
+      "name_eng":"kite",
+      "name_rus":"воздушный змей",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 35,
+      "name_eng":"baseball bat",
+      "name_rus":"бейсбольная бита",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 36,
+      "name_eng":"baseball glove",
+      "name_rus":"бейсбольная перчатка",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 37,
+      "name_eng":"skateboard",
+      "name_rus":"скейтборд",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 38,
+      "name_eng":"surfboard",
+      "name_rus":"серфбоард",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 39,
+      "name_eng":"tennis racket",
+      "name_rus":"теннисная ракетка",
+      "color_rgb":[117, 90, 34], 
+      "color_hex":"#755a22"  
+    },
+    {
+      "id": 40,
+      "name_eng":"bottle",
+      "name_rus":"бутылка",
+      "color_rgb":[98, 117, 34], 
+      "color_hex":"#627522"  
+    },
+    {
+      "id": 41,
+      "name_eng":"wine glass",
+      "name_rus":"бокал для вина",
+      "color_rgb":[98, 117, 34], 
+      "color_hex":"#627522"  
+    },
+    {
+      "id": 42,
+      "name_eng":"cup",
+      "name_rus":"чашка",
+      "color_rgb":[180, 214, 66], 
+      "color_hex":"#b4d642"  
+    },
+    {
+      "id": 43,
+      "name_eng":"fork",
+      "name_rus":"вилка",
+      "color_rgb":[180, 214, 66], 
+      "color_hex":"#b4d642"  
+    },
+    {
+      "id": 44,
+      "name_eng":"knife",
+      "name_rus":"нож",
+      "color_rgb":[180, 214, 66], 
+      "color_hex":"#b4d642"  
+    },
+    {
+      "id": 45,
+      "name_eng":"spoon",
+      "name_rus":"ложка",
+      "color_rgb":[180, 214, 66], 
+      "color_hex":"#b4d642"  
+    },
+    {
+      "id": 46,
+      "name_eng":"bowl",
+      "name_rus":"миска",
+      "color_rgb":[180, 214, 66], 
+      "color_hex":"#b4d642"  
+    },
+    {
+      "id": 47,
+      "name_eng":"banana",
+      "name_rus":"банан",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 48,
+      "name_eng":"apple",
+      "name_rus":"яблоко",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 49,
+      "name_eng":"sandwitch",
+      "name_rus":"сэндвич",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 50,
+      "name_eng":"orange",
+      "name_rus":"апельсин",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 51,
+      "name_eng":"broccoli",
+      "name_rus":"брокколи",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 52,
+      "name_eng":"carrot",
+      "name_rus":"морковь",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 53,
+      "name_eng":"hot dog",
+      "name_rus":"хот дог",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 54,
+      "name_eng":"pizza",
+      "name_rus":"пицца",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 55,
+      "name_eng":"donut",
+      "name_rus":"пончик",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 56,
+      "name_eng":"cake",
+      "name_rus":"торт",
+      "color_rgb":[214, 66, 125], 
+      "color_hex":"#d6427d"  
+    },
+    {
+      "id": 57,
+      "name_eng":"chair",
+      "name_rus":"стул",
+      "color_rgb":[237, 168, 130], 
+      "color_hex":"#eda882"  
+    },
+    {
+      "id": 58,
+      "name_eng":"sofa",
+      "name_rus":"диван",
+      "color_rgb":[237, 168, 130], 
+      "color_hex":"#eda882"  
+    },
+    {
+      "id": 59,
+      "name_eng":"potted plant",
+      "name_rus":"растение в горшке",
+      "color_rgb":[47, 255, 5], 
+      "color_hex":"#2fff05"  
+    },
+    {
+      "id": 60,
+      "name_eng":"bed",
+      "name_rus":"кровать",
+      "color_rgb":[237, 168, 130], 
+      "color_hex":"#eda882"  
+    },
+    {
+      "id": 61,
+      "name_eng":"dining table",
+      "name_rus":"обеденный стол",
+      "color_rgb":[237, 168, 130], 
+      "color_hex":"#eda882"  
+    },
+    {
+      "id": 62,
+      "name_eng":"toilet",
+      "name_rus":"туалет",
+      "color_rgb":[237, 168, 130], 
+      "color_hex":"#eda882"  
+    },
+    {
+      "id": 63,
+      "name_eng":"tvmonitor",
+      "name_rus":"монитор",
+      "color_rgb":[78, 72, 163], 
+      "color_hex":"#4e48a3"  
+    },
+    {
+      "id": 64,
+      "name_eng":"laptop",
+      "name_rus":"ноутбук",
+      "color_rgb":[78, 72, 163], 
+      "color_hex":"#4e48a3"  
+    },
+    {
+      "id": 65,
+      "name_eng":"mouse",
+      "name_rus":"мышь",
+      "color_rgb":[78, 72, 163], 
+      "color_hex":"#4e48a3"  
+    },
+    {
+      "id": 66,
+      "name_eng":"remote",
+      "name_rus":"пульт",
+      "color_rgb":[78, 72, 163], 
+      "color_hex":"#4e48a3"  
+    },
+    {
+      "id": 67,
+      "name_eng":"keyboard",
+      "name_rus":"клавиатура",
+      "color_rgb":[78, 72, 163], 
+      "color_hex":"#4e48a3"  
+    },
+    {
+      "id": 68,
+      "name_eng":"cell phone",
+      "name_rus":"телефон",
+      "color_rgb":[22, 20, 59], 
+      "color_hex":"#16143b"  
+    },
+    {
+      "id": 69,
+      "name_eng":"microwave",
+      "name_rus":"микроволновка",
+      "color_rgb":[22, 20, 59], 
+      "color_hex":"#16143b"  
+    },
+    {
+      "id": 70,
+      "name_eng":"oven",
+      "name_rus":"духовка",
+      "color_rgb":[22, 20, 59], 
+      "color_hex":"#16143b"  
+    },
+    {
+      "id": 71,
+      "name_eng":"toaster",
+      "name_rus":"тостер",
+      "color_rgb":[22, 20, 59], 
+      "color_hex":"#16143b"  
+    },
+    {
+      "id": 72,
+      "name_eng":"sink",
+      "name_rus":"раковина",
+      "color_rgb":[22, 20, 59], 
+      "color_hex":"#16143b"  
+    },
+    {
+      "id": 73,
+      "name_eng":"refrigerator",
+      "name_rus":"холодильник",
+      "color_rgb":[22, 20, 59], 
+      "color_hex":"#16143b"  
+    },
+    {
+      "id": 74,
+      "name_eng":"book",
+      "name_rus":"книга",
+      "color_rgb":[100, 94, 209], 
+      "color_hex":"#645ed1"  
+    },
+    {
+      "id": 75,
+      "name_eng":"clock",
+      "name_rus":"часы",
+      "color_rgb":[100, 94, 209], 
+      "color_hex":"#645ed1"  
+    },
+    {
+      "id": 76,
+      "name_eng":"vase",
+      "name_rus":"ваза",
+      "color_rgb":[100, 94, 209], 
+      "color_hex":"#645ed1"  
+    },
+    {
+      "id": 77,
+      "name_eng":"scissors",
+      "name_rus":"ножницы",
+      "color_rgb":[100, 94, 209], 
+      "color_hex":"#645ed1"  
+    },
+    {
+      "id": 78,
+      "name_eng":"teddy bear",
+      "name_rus":"плюшевый мишка",
+      "color_rgb":[100, 94, 209], 
+      "color_hex":"#645ed1"  
+    },
+    {
+      "id": 79,
+      "name_eng":"hair drier",
+      "name_rus":"фен",
+      "color_rgb":[100, 94, 209], 
+      "color_hex":"#645ed1"  
+    },
+    {
+      "id": 80,
+      "name_eng":"toothbrush",
+      "name_rus":"зубная щетка",
+      "color_rgb":[100, 94, 209], 
+      "color_hex":"#645ed1"  
+    }
+]
