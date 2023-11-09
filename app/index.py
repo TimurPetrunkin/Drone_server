@@ -1,38 +1,52 @@
 from flask import Flask, Response, jsonify, request, send_file
 import cv2
 import json
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import os
-import glob
-from camera import Camera
+from classes import Camera, VisionData
 from vision import gen_frames
-from flask_sock import Sock
+import paths as myPaths
+from flask_socketio import SocketIO
 
 app = Flask('Drone')
-cors = CORS(app, support_credentials=True)
-videoPath = "../video"
-transcriptsPath = "../transcripts"
-sock = Sock(app)
+app.config['SECRET_KEY'] = 'secret!'
+app.config['DEBUG'] = False
+app.config['CORS_HEADERS'] = ['Content-Type']
+cors = CORS(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
+camera = Camera()
+vision_data = VisionData()
+
 
 @app.route('/camera')
-@cross_origin()
 def video_img_stream():
-    return Response(gen_frames(camera), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen_frames(camera, vision_data, socketio), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 @app.route('/set_params', methods=["POST"])
-@cross_origin()
 def videoSetParams():
     try:
+        preload = {
+            "10.3.93.10": "../preload/project1.mp4",
+            "10.3.93.11": "../preload/project2.mp4",
+            "10.3.93.12": "../preload/project1-fast.mp4",
+            "10.3.93.13": "../preload/project2-fast.mp4"
+        }
         data = request.get_json()
-        if data.get("auth"):
-            newCamera = cv2.VideoCapture(f"rtsp://{data.get('login')}:{data.get('password')}@{data.get('link')}")
+        camera.clear()
+        vision_data.clear()
+        if preload.get(data.get('link')) is not None:
+            newCamera = cv2.VideoCapture(preload.get(data.get('link')))
         else:
-            newCamera = cv2.VideoCapture(f"rtsp://{data.get('link')}") 
+            if data.get("auth"):
+                newCamera = cv2.VideoCapture(f"rtsp://{data.get('login')}:{data.get('password')}@{data.get('link')}")
+            else:
+                newCamera = cv2.VideoCapture(f"rtsp://{data.get('link')}") 
         # newCamera = cv2.VideoCapture(1)
         camera.setCamera(newCamera)
         newModel = data.get("model")
-        camera.setModel(newModel)
+        camera.setFrameRate(data.get("frame"))
+        camera.setModel(newModel, data.get('model_settings'), data.get("detect_list"), data.get("detect_object"))
         if newCamera.isOpened():
             return "Success", 200
         else:
@@ -43,14 +57,13 @@ def videoSetParams():
 
 
 @app.route('/save_connect', methods=["POST"])
-@cross_origin()
 def saveConnect():
     try:
         requestData = request.get_json()
         data = None
-        with open('../connects.json', "r", encoding="utf-8") as f:
+        with open(myPaths.CONNECTSPATH, "r", encoding="utf-8") as f:
             data = json.load(f)
-        with open('../connects.json', "w", encoding="utf-8") as f:
+        with open(myPaths.CONNECTSPATH, "w", encoding="utf-8") as f:
             data.append(requestData)
             json.dump(data, f, ensure_ascii=False, indent=4)  
         return "Success", 200
@@ -60,14 +73,13 @@ def saveConnect():
     
 
 @app.route('/delete_connect', methods=["POST"])
-@cross_origin()
 def deleteConnect():
     try:
         requestData = request.get_json()
         data = None
-        with open('../connects.json', "r", encoding="utf-8") as f:
+        with open(myPaths.CONNECTSPATH, "r", encoding="utf-8") as f:
             data = json.load(f)
-        with open('../connects.json', "w", encoding="utf-8") as f:
+        with open(myPaths.CONNECTSPATH, "w", encoding="utf-8") as f:
             data.remove(requestData)
             json.dump(data, f, ensure_ascii=False, indent=4)  
         return "Success", 200
@@ -77,55 +89,69 @@ def deleteConnect():
 
 
 @app.route('/get_models', methods=["GET"])
-@cross_origin()
 def getModels():
     data = None
-    with open('../models.json', encoding="utf-8") as f:
+    with open(myPaths.MODELPATH, encoding="utf-8") as f:
         data = json.load(f)
     return jsonify(data)
 
 
 @app.route('/get_connects', methods=["GET"])
-@cross_origin()
 def getConnects():
     data = None
-    with open('../connects.json', encoding="utf-8") as f:
+    with open(myPaths.CONNECTSPATH, encoding="utf-8") as f:
         data = json.load(f)
     return jsonify(data)
 
 
 @app.route("/off_camera", methods=["POST"])
-@cross_origin()
 def offCamera():
     camera.off()
+    vision_data.writeFile()
+    camera.clear()
+    vision_data.clear()
     return "Success", 200
 
 
-@app.route('/get_video_list', methods=["GET"])
-@cross_origin()
-def getVideos():
-    data = []
-    for f in os.listdir(f"{videoPath}"):
-        name, ext = os.path.splitext(f)
-        if ext == ".mp4":
-            data.append(f)
+@app.route("/get_model_class/<filename>")
+def getModelCC(filename):
+    data = None
+    path = f"{myPaths.MODELCCPATH}/{filename}.json"
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
     return jsonify(data)
 
 
+@app.route('/get_video_list', methods=["GET"])
+def getVideos():
+    page = int(request.args.get("page", default="1"))
+    limit = int(request.args.get("limit", default="6"))
+    data = []
+    for f in os.listdir(myPaths.VIDEO_PATH):
+        name, ext = os.path.splitext(f)
+        if ext == ".mp4":
+            data.append(f)
+    data.reverse()
+    carriage = (page-1)*limit
+    carriage_limit = carriage+limit
+    resp = Response(response=json.dumps(data[carriage:carriage_limit]), status=200, mimetype="application/json")
+    resp.headers["Access-Control-Expose-Headers"] = "X-Total-Count" 
+    resp.headers["X-Total-Count"] = len(data)
+    return resp
+
+
 @app.route('/video/<filename>')
-@cross_origin()
 def display_video(filename):
-    return send_file(f"{videoPath}/{filename}", as_attachment=False) , 200
+    return send_file(f"{myPaths.VIDEO_PATH}/{filename}", as_attachment=False) , 200
 
 
 @app.route('/delete_video', methods=["POST"])
-@cross_origin()
 def deleteVideo():
     try:
         requestData = request.get_data().decode("utf-8")
-        os.remove(f"{videoPath}/{requestData}")
+        os.remove(f"{myPaths.VIDEO_PATH}/{requestData}")
         transcript = f"{requestData.split('mp4')[0]}json"
-        os.remove(f"{transcriptsPath}/{transcript}")
+        os.remove(f"{myPaths.TRANSCRIPTSATH}/{transcript}")
         return "Success", 200
     except Exception as e:
         print(e)
@@ -133,26 +159,14 @@ def deleteVideo():
 
 
 @app.route("/get_transcript/<filename>")
-@cross_origin()
 def get_transcript(filename):
     data = None
-    path = f"{transcriptsPath}/{filename}"
-    if filename == "latest":
-        list_of_files = glob.glob(f'{transcriptsPath}/*.json')
-        path = max(list_of_files, key=os.path.getctime) 
+    path = f"{myPaths.TRANSCRIPTSATH}/{filename}"
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     return jsonify(data)
 
 
-@sock.route('/echo')
-def echo(ws):
-    while True:
-        data = ws.receive()
-        ws.send(data)
-
-camera = Camera()
-
 if __name__ == "__main__":
-    app.run()
-    camera.off()
+    socketio.run(app, use_reloader=False, debug=app.config['DEBUG'], host="127.0.0.1", port=5000)
+    # socketio.run(app, use_reloader=False, debug=app.config['DEBUG'], host="10.3.93.8", port=5000)

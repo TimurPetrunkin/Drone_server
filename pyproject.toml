@@ -10,11 +10,12 @@ packages = [{include = "drone_server"}]
 python = "^3.9"
 flask = "^2.3.3"
 opencv-python = "^4.8.0.76"
-ultralytics = "^8.0.168"
 flask-cors = "^4.0.0"
-py-mon = "^1.1.1"
-flask-sock = "^0.6.0"
-gunicorn = "^21.2.0"
+flask-socketio = "^5.3.6"
+ultralytics = "^8.0.187"
+torch = "^2.0.1"
+torchvision = "^0.15.2"
+torchaudio = "^2.0.2"
 
 
 [build-system]
